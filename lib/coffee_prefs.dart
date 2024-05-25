@@ -1,3 +1,5 @@
+import 'package:coffe_card/styled_body_text.dart';
+import 'package:coffe_card/styled_button.dart';
 import 'package:flutter/material.dart';
 
 class CoffeePrefs extends StatefulWidget {
@@ -29,7 +31,7 @@ class _CoffeePrefsState extends State<CoffeePrefs> {
       children: [
         Row(
           children: [
-            const Text("Strength: "),
+            const StyledBodyText("Strength: "),
             for (int i = 0; i < strenght; i++)
               Image.asset(
                 "assets/img/coffee_bean.png",
@@ -38,18 +40,13 @@ class _CoffeePrefsState extends State<CoffeePrefs> {
                 colorBlendMode: BlendMode.multiply,
               ),
             const Expanded(child: SizedBox()),
-            FilledButton(
-                style: FilledButton.styleFrom(
-                    foregroundColor: Colors.white,
-                    backgroundColor: Colors.brown),
-                onPressed: increaseStrength,
-                child: const Text("+"))
+            StyledButton(onPressed: increaseStrength, child: const Text("+"))
           ],
         ),
         Row(
           children: [
-            const Text("Sugars: "),
-            if (sugar == 0) const Text("No sugar..."),
+            const StyledBodyText("Sugars: "),
+            if (sugar == 0) const StyledBodyText("No sugar..."),
             for (int i = 0; i < sugar; i++)
               Image.asset(
                 "assets/img/sugar_cube.png",
@@ -58,10 +55,7 @@ class _CoffeePrefsState extends State<CoffeePrefs> {
                 colorBlendMode: BlendMode.multiply,
               ),
             const Expanded(child: SizedBox()),
-            TextButton(
-                style: TextButton.styleFrom(foregroundColor: Colors.brown),
-                onPressed: increaseSugar,
-                child: const Text("+"))
+            StyledButton(onPressed: increaseSugar, child: const Text("+"))
           ],
         )
       ],
