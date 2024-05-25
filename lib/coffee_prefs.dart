@@ -18,7 +18,12 @@ class CoffeePrefs extends StatelessWidget {
               colorBlendMode: BlendMode.multiply,
             ),
             const Expanded(child: SizedBox()),
-            const Text("+")
+            FilledButton(
+                style: FilledButton.styleFrom(
+                    foregroundColor: Colors.white,
+                    backgroundColor: Colors.brown),
+                onPressed: () {},
+                child: const Text("+"))
           ],
         ),
         Row(
@@ -32,7 +37,10 @@ class CoffeePrefs extends StatelessWidget {
               colorBlendMode: BlendMode.multiply,
             ),
             const Expanded(child: SizedBox()),
-            const Text("+")
+            TextButton(
+                style: TextButton.styleFrom(foregroundColor: Colors.brown),
+                onPressed: () {},
+                child: const Text("+"))
           ],
         )
       ],
