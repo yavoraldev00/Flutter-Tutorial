@@ -1,7 +1,27 @@
 import 'package:flutter/material.dart';
 
-class CoffeePrefs extends StatelessWidget {
+class CoffeePrefs extends StatefulWidget {
   const CoffeePrefs({super.key});
+
+  @override
+  State<CoffeePrefs> createState() => _CoffeePrefsState();
+}
+
+class _CoffeePrefsState extends State<CoffeePrefs> {
+  int strenght = 1;
+  int sugar = 1;
+
+  void increaseStrength() {
+    setState(() {
+      strenght = strenght < 5 ? strenght + 1 : 1;
+    });
+  }
+
+  void increaseSugar() {
+    setState(() {
+      sugar = sugar < 5 ? sugar + 1 : 0;
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -10,7 +30,7 @@ class CoffeePrefs extends StatelessWidget {
         Row(
           children: [
             const Text("Strength: "),
-            const Text("3"),
+            Text("$strenght"),
             Image.asset(
               "assets/img/coffee_bean.png",
               width: 25,
@@ -22,14 +42,14 @@ class CoffeePrefs extends StatelessWidget {
                 style: FilledButton.styleFrom(
                     foregroundColor: Colors.white,
                     backgroundColor: Colors.brown),
-                onPressed: () {},
+                onPressed: increaseStrength,
                 child: const Text("+"))
           ],
         ),
         Row(
           children: [
             const Text("Sugars: "),
-            const Text("3"),
+            Text("$sugar"),
             Image.asset(
               "assets/img/sugar_cube.png",
               width: 25,
@@ -39,7 +59,7 @@ class CoffeePrefs extends StatelessWidget {
             const Expanded(child: SizedBox()),
             TextButton(
                 style: TextButton.styleFrom(foregroundColor: Colors.brown),
-                onPressed: () {},
+                onPressed: increaseSugar,
                 child: const Text("+"))
           ],
         )
