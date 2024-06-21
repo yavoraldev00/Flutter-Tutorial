@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 class StyledBodyText extends StatelessWidget {
+  // custom font style
   const StyledBodyText(this.text, {super.key});
 
   final String text;

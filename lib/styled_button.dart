@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 class StyledButton extends StatelessWidget {
+  // custom button style
   const StyledButton({super.key, required this.onPressed, required this.child});
 
   final Widget child;
